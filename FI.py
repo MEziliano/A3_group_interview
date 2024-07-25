@@ -38,9 +38,10 @@ color_palettes = {
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-
-PATH = r"C:\Users\U6094291\Desktop\StockPrice\customer_data_2.csv"if platform.system() == "Windows" else r"/home/usuario/Forex/customer_data_2.csv"
-
+try:
+    PATH = r"C:\Users\U6094291\Desktop\StockPrice\customer_data_2.csv"if platform.system() == "Windows" else r"/home/usuario/Forex/customer_data_2.csv"
+expect:
+    PATH = r".\customer_data_2.csv"
 @st.cache_data
 def load_data(path: str):
     # Function to load data
